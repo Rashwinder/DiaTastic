@@ -102,17 +102,12 @@
                       <a class="nav-link" href="/logout/">Log out</a>
                   </li>
                 </ul>
+              {% else %}
                   <ul>
-                {% elif request.session.signup %}
-                <ul style="margin-right:1%;margin-top:1%;">
-                  <li class="nav-item">
-                    <a class="nav-link" href="/login/">Login</a>
-                  </li>
-                {% else %}
                     <li class="nav-item">
                       <a class="nav-link" href="/login/">Sign Up</a>
                     </li>
-                {% endif %}
+              {% endif %}
                  </ul>
                 </ul>
           </nav>
@@ -151,7 +146,7 @@
               </div>
                  &nbsp; &nbsp; &nbsp;
               <div class="col">
-                <a href="#" class="feature-item-29103 h-100">
+                <a href="/list_view/" class="feature-item-29103 h-100">
                   <span class="heading d-block">History</span>
                   <span class="excerpt">View your past entries for tracking your blood sugar levels and insulin used.</span>
                   <span class="more">More</span>
@@ -165,6 +160,7 @@
 
 
         <!-- BEGIN: #main -->
+        {% if request.session.is_login %}
         <div id="main">
           <!-- BEGIN: .news-updates-22796 -->
           <div class=" site-section bg-light news-updates-22796">
@@ -176,13 +172,23 @@
             <div style="height:300px;width:100%;">
                 <canvas id="chartjs-line-chart2"></canvas>
             </div>
-                                <br>
+            <br>
             <div style="height:300px;width:100%;">
                 <canvas id="chartjs-line-chart3"></canvas>
             </div>
             </div>
           </div>
         </div>
+        {% else %}
+          <!-- BEGIN: .news-updates-22796 -->
+          <div class=" site-section bg-light news-updates-22796">
+            <div class="container">
+            <div style="height:300px;width:100%;">
+                <canvas id="chartjs-line-chart4"></canvas>
+            </div>
+            </div>
+          </div>
+        {% endif %}
         <!-- END: #main -->
 
 <!--         BEGIN: #footer-->
@@ -192,7 +198,7 @@
             <!-- BEGIN: .footer-subscribe -->
             <div class="row footer-subscribe">
               <div class="col-md-6">
-                <h3 class="mt-2">manage your blood sugar, join US.</h3>
+                <h3 class="mt-2"></h3>
               </div>
               <div class="col-md-6">
               </div>
@@ -203,13 +209,6 @@
               <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <!-- BEGIN: .widget -->
                 <div class="widget">
-                  <h3>About Our Team.</h3>
-                </div>
-                <!-- END: .widget -->
-              </div>
-              <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                <!-- BEGIN: .widget -->
-                <div class="widget">
                   <h3>Our Motivation.</h3>
                 </div>
                 <!-- END: .widget -->
@@ -217,25 +216,36 @@
               <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <!-- BEGIN: .widget -->
                 <div class="widget">
-                  <h3>Our Data.</h3>
+<!--                  <h3>Our Job.</h3>-->
+                </div>
+                <!-- END: .widget -->
+              </div>
+              <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                <!-- BEGIN: .widget -->
+                <div class="widget">
+<!--                  <h3>Our Data.</h3>-->
                 </div>
                 <!-- END: .widget -->
               </div>
               <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <div class="d-block">
                 </div>
-                <div class="d-block">
-                  <p>If you have any question, please contact us at <a href="#" class="link-underline text-primary">info@diatastic.tk</a></p>
-                </div>
+<!--                <div class="d-block">-->
+<!--                  <p>If you have any question, please contact us at <a href="#" class="link-underline text-primary">info@diatastic.tk</a></p>-->
+<!--                </div>-->
               </div>
             </div>
-
+<!--            <div class="col-md-6 text-center text-md-left">-->
+<!--                <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</a></p>-->
+<!--              </div>-->
+            <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</p>
+            <p>Disclaimer: Diatastic only provides a recommendation on the insulin dosage. It should not overwrite any advice that was given to you by a medical professional.</p>
             <!-- BEGIN: .copyright -->
             <div class="row copyright">
               <div class="col-md-6 order-2 text-center text-md-right"><a href="#" class="js-top"><span class="icon-long-arrow-up mr-2"></span> Go to Top</a></div>
-              <div class="col-md-6 text-center text-md-left">
-                <p>&copy; 2022. All Rights Reserved. Design by <a href="#" target="_blank" class="link-underline text-primary">TP08</a></p>
-              </div>
+<!--              <div class="col-md-6 text-center text-md-left">-->
+<!--                <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</a></p>-->
+<!--              </div>-->
             </div>
             <!-- END: .copyright -->
           </div>
@@ -278,81 +288,77 @@
 
     </body>
 
+<!--bsl-->
 <script>
+var y_bsl = {{y_bsl | escapejs}};
+var times = {{x_lable|safe}};
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
 
-        window.chartColors = {
-            red: 'rgb(255, 99, 132)',
-            orange: 'rgb(255, 159, 64)',
-            yellow: 'rgb(255, 205, 86)',
-            green: 'rgb(75, 192, 192)',
-            blue: 'rgb(54, 162, 235)',
-            purple: 'rgb(153, 102, 255)',
-            grey: 'rgb(201, 203, 207)'
-        };
-
-        window.randomScalingFactor = function () {
-            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-        };
-        var lineConfig = {
-            type: 'line',
-            data: {
-                labels: ["1", "2", "3", "4"],
-                datasets: [{
-                    label: "Blood Sugar Level",
-                    backgroundColor: window.chartColors.red,
-                    borderColor: window.chartColors.red,
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ],
-                    fill: false,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                title: {
+var lineConfig = {
+    type: 'line',
+    data: {
+        labels: times,
+        datasets: [{
+            label: "Blood Sugar Level",
+            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.red,
+            data: y_bsl,
+            fill: false,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Blood Sugar Level'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
                     display: true,
-                    text: 'Blood Sugar Level'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date and Time'
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'mmol/L'
-                        }
-                    }]
+                    labelString: 'Last 10 entries'
                 }
-            }
-        };
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'mmol/L'
+                }
+            }]
+        }
+    }
+};
 
 
 
-        var lineCtx = document.getElementById("chartjs-line-chart").getContext("2d");
-        window.myLine = new Chart(lineCtx, lineConfig);
+var lineCtx = document.getElementById("chartjs-line-chart").getContext("2d");
+window.myLine = new Chart(lineCtx, lineConfig);
 
 </script>
 
+<!--carb-->
 <script>
-
+var y_carb = {{y_carb | escapejs}};
+var times = {{x_lable|safe}};
         window.chartColors = {
             red: 'rgb(255, 99, 132)',
             orange: 'rgb(255, 159, 64)',
@@ -363,27 +369,15 @@
             grey: 'rgb(201, 203, 207)'
         };
 
-        window.randomScalingFactor = function () {
-            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-        };
-
-
-
-
         var lineConfig = {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April"],
+                labels: times,
                 datasets: [{
                     label: "Carbohydrates",
                     backgroundColor: window.chartColors.blue,
                     borderColor: window.chartColors.blue,
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                    ],
+                    data: y_carb,
                     fill: false,
                 }]
             },
@@ -407,7 +401,7 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Date and Time'
+                            labelString: 'Last 10 entries'
                         }
                     }],
                     yAxes: [{
@@ -428,8 +422,10 @@
 
 </script>
 
+<!--isl-->
 <script>
-
+var y_isl = {{y_isl | escapejs}};
+var times = {{x_lable|safe}};
         window.chartColors = {
             red: 'rgb(255, 99, 132)',
             orange: 'rgb(255, 159, 64)',
@@ -439,28 +435,15 @@
             purple: 'rgb(153, 102, 255)',
             grey: 'rgb(201, 203, 207)'
         };
-
-        window.randomScalingFactor = function () {
-            return (Math.random() > 0.5 ? 1.0 : -1.0) * Math.round(Math.random() * 100);
-        };
-
-
-
-
         var lineConfig = {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April"],
+                labels: times,
                 datasets: [{
                     label: "Insulin",
                     backgroundColor: window.chartColors.green,
                     borderColor: window.chartColors.green,
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                    ],
+                    data: y_isl,
                     fill: false,
                 }]
             },
@@ -484,7 +467,7 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Date and Time'
+                            labelString: 'Last 10 entries'
                         }
                     }],
                     yAxes: [{
@@ -503,6 +486,91 @@
 
         var lineCtx3 = document.getElementById("chartjs-line-chart3").getContext("2d");
         window.myLine = new Chart(lineCtx3, lineConfig);
+
+</script>
+
+<!--example-->
+<script>
+var times = [1,2,3,4,5,6,7,8,9,10];
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
+
+window.randomScalingFactor = function () {
+    return (Math.random() > 0.5 ? 1.0 : 0) * Math.round(Math.random() * 10);
+};
+
+
+
+
+var lineConfig = {
+    type: 'line',
+    data: {
+        labels:times,
+        datasets: [{
+            label: "Blood Sugar Level & Carbohydrates & Insulin",
+            backgroundColor: window.chartColors.red,
+            borderColor: window.chartColors.red,
+            data: [
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+                randomScalingFactor(),
+            ],
+            fill: false,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'This is the example chart shows the last three days data,please login to check it.'
+        },
+        tooltips: {
+            mode: 'index',
+            intersect: false,
+        },
+        hover: {
+            mode: 'nearest',
+            intersect: true
+        },
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Last 10 entries'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'mmol/L && Grams && Units '
+                }
+            }]
+        }
+    }
+};
+
+
+
+
+var lineCtx4 = document.getElementById("chartjs-line-chart4").getContext("2d");
+window.myLine = new Chart(lineCtx4, lineConfig);
 
 </script>
 

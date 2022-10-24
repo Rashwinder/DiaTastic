@@ -11,7 +11,7 @@ class DiaryForm(forms.ModelForm):
     time = forms.TimeField(widget=forms.NumberInput(attrs={'type': 'time'}))
 
     blood_sugar_level = forms.DecimalField(max_digits=3,
-                                           decimal_places=1)
+                                           decimal_places=10)
     comment = forms.CharField(max_length=1280, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
 
     # Menu-related fields.
