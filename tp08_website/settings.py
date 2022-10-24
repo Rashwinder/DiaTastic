@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*%e^y9xux5@x47t$s7pw^77^$yh!dly(16h5v(=@6!8&*+q7jk'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,8 +76,6 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = (
  'social_core.backends.open_id.OpenIdAuth',  # for Google authentication
- # 'social_core.backends.google.GoogleOpenId',  # for Google authentication
- # 'social_core.backends.google_openidconnect.GoogleOpenIdConnect',
  'social_core.backends.google.GoogleOAuth2',  # for Google authentication
  'social_core.backends.github.GithubOAuth2',  # for Github authentication
  'social_core.backends.facebook.FacebookOAuth2',  # for Facebook authentication
@@ -121,8 +119,6 @@ DATABASES = {
 DATABASE_ROUTERS = ['tp08_website.database_router.DatabaseAppsRouter']
 
 DATABASE_APPS_MAPPING = {
-    # example:
-    # 'app_name':'database_name',
     'iteration3': 'default',
     'iteration2': 'iteration2',
     'iteration': 'iteration3',
@@ -188,8 +184,8 @@ LOGIN_REDIRECT_URL = 'index'
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1087562863702-0utfhfqp4b41p4gdfnnafb4eoi370p3n.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 #SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
