@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a8036c0-18e1-40bd-b3fa-823c02daac1d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tp08_website.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_secret_1087562863702-0utfhfqp4b41p4gdfnnafb4eoi370p3n.apps.googleusercontent.com.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/Beginners Guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/Beginners Guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/carb_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/carb_chart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/diary1.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/diary1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/list_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/list_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/mail.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/mail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/tips.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/tips.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-    </list>
+    <list default="true" id="2a8036c0-18e1-40bd-b3fa-823c02daac1d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +37,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
