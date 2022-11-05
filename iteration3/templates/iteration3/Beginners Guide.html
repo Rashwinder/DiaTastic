@@ -91,7 +91,7 @@
                 <ul style="margin-right:1%;margin-top:1%;">
                 {% if request.session.is_login %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="blue">User:{{ request.session.user_name }}</font></a>
+                    <a class="nav-link" href="#"><font color="blue">Hello, {{ request.session.user_name }}!</font></a>
                   </li>
                 </ul>
                 <ul style="margin-right:1%;margin-top:1%;">

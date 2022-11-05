@@ -97,9 +97,9 @@
               <!-- END: #main-nav -->
 
             </div>
-                          <ul style="margin-right:1%;margin-top:1%;">
+              <ul style="margin-right:1%;margin-top:1%;">
                   <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="blue">User:{{ request.session.user_name }}</font></a>
+                    <a class="nav-link" href="#"><font color="blue">Hello, {{ request.session.user_name }}!</font></a>
                   </li>
                 </ul>
                 <ul style="margin-right:1%;margin-top:1%;">
@@ -116,7 +116,10 @@
             <div class="row align-items-end">
               <div class="col-lg-7">
                 <h1 class="mb-0 heading text-white">Metrics</h1>
-                <p class="mb-0 text-white">Healthy living starts with your daily diet.</p>
+                <p class="mb-0 text-white">
+                    The Metrics section allows you to view your entries for any period of time, letting you keep track of your key metrics and better manage your disability.
+                    <br/><br/>
+                    Clicking on “Send It" allows you to send your metrics as a mail attachment to a medical professional or any interested third party of your choice.</p>
               </div>
             </div>
           </div>
@@ -128,8 +131,6 @@
 <body>
 <div style="text-align:center">
     <br>
-    <p>The Metrics section allows you to view your entries for any period of time, letting you keep track of your key metrics and better manage your disability.</p>
-    <p>Clicking on the “Send It" button allows you to send your metrics as a mail attachment to a medical professional or any interested third party.</p>
     <form method="GET" action="{% url 'carb_chart' %}">
         <div style="text-align: center;">
             <br>
@@ -148,9 +149,11 @@
         </div>
     </form>
     </div>
+
     <br>
-    <div class="svg-container" style="display: inline-block;width:100%;height:65%;margin-left:10%">
-        <div class="svg-container" style="height: 600px;width:1500px">
+
+    <div class="svg-container" style="display: inline-block;width:100%;height:65%;margin-left:10%;">
+        <div class="svg-container" style="height: 100%;width:80%">
             {{ bsl_chart|safe }}>
         </div>
     </div>
@@ -194,22 +197,16 @@
               <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <div class="d-block">
                 </div>
-<!--                <div class="d-block">-->
-<!--                  <p>If you have any question, please contact us at <a href="#" class="link-underline text-primary">info@diatastic.tk</a></p>-->
-<!--                </div>-->
+
               </div>
             </div>
-<!--            <div class="col-md-6 text-center text-md-left">-->
-<!--                <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</a></p>-->
-<!--              </div>-->
+
             <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</p>
             <p>Disclaimer: Diatastic only provides a recommendation on the insulin dosage. It should not overwrite any advice that was given to you by a medical professional.</p>
             <!-- BEGIN: .copyright -->
             <div class="row copyright">
               <div class="col-md-6 order-2 text-center text-md-right"><a href="#" class="js-top"><span class="icon-long-arrow-up mr-2"></span> Go to Top</a></div>
-<!--              <div class="col-md-6 text-center text-md-left">-->
-<!--                <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</a></p>-->
-<!--              </div>-->
+
             </div>
             <!-- END: .copyright -->
           </div>

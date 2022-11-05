@@ -20,6 +20,9 @@ def main():
 
 
 if __name__ == '__main__':
-    Runserver.default_addr = '0.0.0.0'
-    Runserver.default_port = '80'
+    # Runserver.default_addr = '0.0.0.0'
+    # Runserver.default_port = '80'
+
+    Runserver.default_addr = '127.0.0.1'
+    Runserver.default_port = '8999'
     main()

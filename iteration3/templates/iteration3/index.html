@@ -43,15 +43,6 @@
               </div>
             <div class="container">
 
-              <!-- BEGIN: .navbar-brand -->
-<!--              <div style="margin-left:1%">-->
-<!--              <a class="navbar-brand" href="/index/">-->
-<!--              <img src="/static/images/icons8-rh-plus-gradient-32.png" >Diatastic-->
-<!--    &lt;!&ndash;          <img src="../static/images/logo_dark.png" alt="Covid" id="logo_dark">&ndash;&gt;-->
-<!--              </a>-->
-<!--              </div>-->
-              <!-- END: .navbar-brand -->
-
               <!-- BEGIN: .navbar-toggler -->
               <a href="#" class="burger-toggle-menu js-burger-toggle-menu ml-auto py-4" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
@@ -94,12 +85,12 @@
                 <ul style="margin-right:1%;margin-top:1%;">
                 {% if request.session.is_login %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">User:{{ request.session.user_name }}</a>
+                    <a class="nav-link" href="#">Hello, {{ request.session.user_name }}!</a>
                   </li>
                 </ul>
                 <ul style="margin-right:1%;margin-top:1%;">
                   <li class="nav-item">
-                      <a class="nav-link" href="/logout/">Log out</a>
+                      <a class="nav-link" href="/logout/">Log Out</a>
                   </li>
                 </ul>
               {% else %}
@@ -230,22 +221,14 @@
               <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <div class="d-block">
                 </div>
-<!--                <div class="d-block">-->
-<!--                  <p>If you have any question, please contact us at <a href="#" class="link-underline text-primary">info@diatastic.tk</a></p>-->
-<!--                </div>-->
               </div>
             </div>
-<!--            <div class="col-md-6 text-center text-md-left">-->
-<!--                <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</a></p>-->
-<!--              </div>-->
+
             <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</p>
             <p>Disclaimer: Diatastic only provides a recommendation on the insulin dosage. It should not overwrite any advice that was given to you by a medical professional.</p>
             <!-- BEGIN: .copyright -->
             <div class="row copyright">
               <div class="col-md-6 order-2 text-center text-md-right"><a href="#" class="js-top"><span class="icon-long-arrow-up mr-2"></span> Go to Top</a></div>
-<!--              <div class="col-md-6 text-center text-md-left">-->
-<!--                <p>Diatastic is a management tool created for diabetics, to help them manage their disability. Our website is intended to be an everyday companion for diabetics, giving them the motivation and tools necessary to live happy and healthy lives.</a></p>-->
-<!--              </div>-->
             </div>
             <!-- END: .copyright -->
           </div>

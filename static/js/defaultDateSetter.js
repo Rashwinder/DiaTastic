@@ -1,4 +1,3 @@
-
 // Initialise time now when page loads
 var now = new Date();
 
