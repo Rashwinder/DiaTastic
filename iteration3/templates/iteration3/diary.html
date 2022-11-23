@@ -97,13 +97,14 @@
         </header>
         <!-- END: #site-header -->
 
+{% block content %}
         <!-- BEGIN: .cover -->
         <div class="page-heading-85912" style="background-image: url('images/hero_bg_3.jpg')">
           <div class="container">
             <div class="row align-items-end">
               <div class="col-lg-7">
                 <h1 class="mb-0 heading text-white">Diary</h1>
-                <p class="mb-0 text-white">Healthy living starts with your daily diet. </p>
+                <p class="mb-0 text-white">Healthy living starts with your diet. </p>
               </div>
             </div>
           </div>
@@ -119,45 +120,8 @@
           </div>
         </div>
         <span></span>
+
         <!-- BEGIN: diary form -->
-    <!--    <div class="container">-->
-    <!--    </code>-->
-    <!--    </pre>-->
-    <!--    <input type="text" id="DemoInput1">-->
-    <!--        </code>-->
-    <!--    </pre>-->
-    <!--    </div>-->
-
-    <!--	<script type="text/javascript">-->
-    <!--	var TagsData=[]-->
-    <!--	TagsData.push({id:1,name:"PHP",screen:"php"})-->
-    <!--	TagsData.push({id:4,name:"C#",screen:"c"})-->
-    <!--	TagsData.push({id:6,name:"JavaScript",screen:"javascript"})-->
-    <!--	TagsData.push({id:2,name:"HTML5",screen:"html5"})-->
-    <!--	TagsData.push({id:3,name:"Python",screen:"python"})-->
-    <!--	TagsData.push({id:5,name:"数据库",screen:"sjk"})-->
-    <!--	TagsData.push({id:7,name:"服务器",screen:"fwq"})-->
-    <!--	TagsData.push({id:8,name:"PHP",screen:"php"})-->
-    <!--	TagsData.push({id:9,name:"C#",screen:"c"})-->
-    <!--	TagsData.push({id:10,name:"JavaScript",screen:"javascript"})-->
-    <!--	TagsData.push({id:11,name:"HTML5",screen:"html5"})-->
-    <!--	TagsData.push({id:12,name:"Python",screen:"python"})-->
-    <!--	TagsData.push({id:13,name:"数据库",screen:"sjk"})-->
-    <!--	TagsData.push({id:14,name:"服务器",screen:"fwq"})-->
-    <!--	TagsData.push({id:15,name:"C#",screen:"c"})-->
-    <!--	TagsData.push({id:16,name:"JavaScript",screen:"javascript"})-->
-    <!--	TagsData.push({id:17,name:"HTML5",screen:"html5"})-->
-    <!--	TagsData.push({id:18,name:"Python",screen:"python"})-->
-    <!--	TagsData.push({id:19,name:"数据库",screen:"sjk"})-->
-    <!--	TagsData.push({id:20,name:"服务器",screen:"fwq"})-->
-
-
-    <!--	$("#DemoInput1").sTags({-->
-    <!--		data:TagsData,-->
-    <!--	})-->
-    <!--    </script>-->
-
-
           <form method="post"
                 id="DiaryForm"
                 action="/iteration2/create_view/"
@@ -220,169 +184,12 @@
                     <input type="reset" class="btn btn-danger" name="reset" value="reset" style="float:right">
             </div>
         </form>
+          <!-- END: diary form -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<!--          <form method="post" action="/create_view/" style="align-items: center;" >-->
-<!--              {% csrf_token %}-->
-<!--            <div class="container">-->
-<!--&lt;!&ndash;                    <div class="form-check">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label for="date">Date: </label>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input name="date" id="date" type="date" class="form-control" required="required"></input>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                    <div class="form-check">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label for="time">Time: </label>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input name="time"id="time" type="time" class="form-control" required="required"></input>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                    <div class="form-check">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label for="blood_sugar_level"/>Blood Sugar Level: </label>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input name="blood_sugar_level" id="blood_sugar_level" type="Decimal" class="form-control" required="required" value={{ blood_sugar_level }} ></input>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-<!--                    <div class="form-check">-->
-<!--                        <label for="menu"/>Items:</label>-->
-<!--                        <select name="menu" id="menu" class="form-control select-picker" required="required" multiple="multiple">-->
-<!--                            {% for item in menu %}-->
-<!--                            <option value="{{ item.name }}">{{ item.name }}</option>-->
-<!--                            {% endfor %}-->
-<!--                        </select>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-check">-->
-<!--                        <label for="quantity"/>Quantity: </label>-->
-<!--                        <input name="quantity" id="quantity" type="Decimal" class="form-control" required="required" value={{ quantity }} ></input>-->
-<!--                    </div>-->
-
-<!--&lt;!&ndash;                    <div class="form-check">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <label for="drink"/>Drinks:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <select name="drink" id="drink" class="form-control select-picker" required="required" multiple="multiple">&ndash;&gt;-->
-<!--&lt;!&ndash;                            {% for item in drinks %}&ndash;&gt;-->
-<!--&lt;!&ndash;                            <option value="{{ item.name }}">{{ item.name }}</option>&ndash;&gt;-->
-<!--&lt;!&ndash;                            {% endfor %}&ndash;&gt;-->
-<!--&lt;!&ndash;                        </select>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-
-<!--                    <br>-->
-<!--                    &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary">submit</button>-->
-<!--                    <button type="reset" class="btn btn-primary">reset</button>-->
-<!--    &lt;!&ndash;                <input type="button" value="Reset" id="resetBtn" onClick="this.form.reset()"/>&ndash;&gt;-->
-<!--            </div>-->
-<!--        </form>-->
           <span></span>
-
-
-
-        <!-- END: diary form -->
-
-
-        <!-- BEGIN: #main -->
-
-        <!-- END: #main -->
-
-        <!-- BEGIN: #footer -->
-    <!--    <footer id="footer">-->
-    <!--      <div class="container">-->
-
-    <!--        &lt;!&ndash; BEGIN: .footer-subscribe &ndash;&gt;-->
-    <!--        <div class="row footer-subscribe">-->
-    <!--          <div class="col-md-6">-->
-    <!--            <h3 class="mt-2">Get our newsletter, join us.</h3>-->
-    <!--          </div>-->
-    <!--          <div class="col-md-6">-->
-    <!--            <form action="#" id="mc-form" class="form-subscribe">-->
-    <!--              <div class="d-flex align-items-stretch w-100">-->
-    <!--                <input type="email" id="mc-email" placeholder="Email address" class="form-control">-->
-    <!--                <input type="submit" value="GET INFO" class="btn btn-outline-white-reverse">-->
-    <!--              </div>-->
-    <!--              <div class="form-group">-->
-    <!--                <label for="mc-email"></label>-->
-    <!--              </div>-->
-    <!--            </form>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash; END: .footer-subscribe &ndash;&gt;-->
-
-    <!--        <div class="row">-->
-    <!--          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">-->
-    <!--            &lt;!&ndash; BEGIN: .widget &ndash;&gt;-->
-    <!--            <div class="widget">-->
-    <!--              <h3>About</h3>-->
-    <!--              <ul class="nav-link">-->
-    <!--                <li><a href="#">Home</a></li>-->
-    <!--                <li><a href="#">Situation</a></li>-->
-    <!--                <li><a href="#">Prevention</a></li>-->
-    <!--                <li><a href="#">Symptoms</a></li>-->
-    <!--                <li><a href="#">Community</a></li>-->
-    <!--              </ul>-->
-    <!--            </div>-->
-    <!--            &lt;!&ndash; END: .widget &ndash;&gt;-->
-    <!--          </div>-->
-    <!--          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">-->
-    <!--            &lt;!&ndash; BEGIN: .widget &ndash;&gt;-->
-    <!--            <div class="widget">-->
-    <!--              <h3>Helpful Links</h3>-->
-    <!--              <ul class="nav-link">-->
-    <!--                <li><a href="#">Reduce The Spread</a></li>-->
-    <!--                <li><a href="#">Who Are At Risk</a></li>-->
-    <!--                <li><a href="#">Social Distancing</a></li>-->
-    <!--                <li><a href="#">Community Advice</a></li>-->
-    <!--                <li><a href="#">Technical Guidance</a></li>-->
-    <!--              </ul>-->
-    <!--            </div>-->
-    <!--            &lt;!&ndash; END: .widget &ndash;&gt;-->
-    <!--          </div>-->
-    <!--          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">-->
-    <!--            &lt;!&ndash; BEGIN: .widget &ndash;&gt;-->
-    <!--            <div class="widget">-->
-    <!--              <h3>Protect Yourself</h3>-->
-    <!--              <ul class="nav-link">-->
-    <!--                <li><a href="#">Wash Your Hands Often</a></li>-->
-    <!--                <li><a href="#">Wear a Face Mask</a></li>-->
-    <!--                <li><a href="#">Avoid Contact With Sick People</a></li>-->
-    <!--                <li><a href="#">Always Cover Your Cough or Sneeze</a></li>-->
-    <!--                <li><a href="#">Protect Your Family</a></li>-->
-    <!--              </ul>-->
-    <!--            </div>-->
-    <!--            &lt;!&ndash; END: .widget &ndash;&gt;-->
-    <!--          </div>-->
-    <!--          <div class="col-md-6 col-lg-3 mb-4 mb-md-0">-->
-    <!--            <div class="d-block">-->
-    <!--              <ul class="list-unstyled d-flex social-29021">-->
-    <!--                <li><a href="#"><span class="icon-facebook"></span></a></li>-->
-    <!--                <li><a href="#"><span class="icon-twitter"></span></a></li>-->
-    <!--                <li><a href="#"><span class="icon-instagram"></span></a></li>-->
-    <!--                <li><a href="#"><span class="icon-linkedin"></span></a></li>-->
-    <!--              </ul>-->
-    <!--            </div>-->
-
-    <!--            <div class="d-block mb-4">-->
-    <!--              <a href="#" class="d-flex call align-items-center">-->
-    <!--                <span class="lni lni-mobile wrap-icon"></span>-->
-    <!--                <span class="number">329 4902 392</span>-->
-    <!--              </a>-->
-    <!--            </div>-->
-    <!--            <div class="d-block">-->
-    <!--              <p>If you have any question, please contact us at <a href="#" class="link-underline text-primary">info@diatastic.tk</a></p>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-
-    <!--        &lt;!&ndash; BEGIN: .copyright &ndash;&gt;-->
-    <!--        <div class="row copyright">-->
-    <!--          <div class="col-md-6 order-2 text-center text-md-right"><a href="#" class="js-top"><span class="icon-long-arrow-up mr-2"></span> Go to Top</a></div>-->
-    <!--          <div class="col-md-6 text-center text-md-left">-->
-    <!--            <p>&copy; 2022. All Rights Reserved. Design by <a href="#" target="_blank" class="link-underline text-primary">TP08</a></p>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash; END: .copyright &ndash;&gt;-->
-    <!--      </div>-->
-    <!--    </footer>-->
-         <!--END: #footer -->
-
+{% endblock %}
       </div>
-      <!-- END: .site-wrap -->
 
       <!-- Loader -->
       <div id="site-overlayer"></div>

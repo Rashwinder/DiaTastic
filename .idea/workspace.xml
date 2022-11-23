@@ -2,28 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8036c0-18e1-40bd-b3fa-823c02daac1d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DiaTastic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DiaTastic.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration2/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration2/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/Beginners Guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/Beginners Guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/carb_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/carb_chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/carb_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/metrics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/diary.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/diary.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/diary1.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/diary1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/faq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/list_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/list_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/mail.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/mail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/list_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/history.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/tips.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/tips.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/defaultDateSetter.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/defaultDateSetter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tp08_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp08_website/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

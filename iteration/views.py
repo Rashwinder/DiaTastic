@@ -85,7 +85,7 @@ def create_view(request):
                     insulin=insulin_calculation(item.food, item.drinks, item.blood_sugar_level))
         return redirect("/list_view/",context={'date':date,'time':time,'blood_sugar_level':blood_sugar_level,'food':food,'drinks':drinks})
 
-    return render(request, "iteration/list_view.html")
+    return render(request, "iteration/history.html")
 
 def entry_view(request, diary_id):
     obj = get_object_or_404(DiaryEntries, diary_id=diary_id)
@@ -106,7 +106,7 @@ def list_view(request):
     for item in diary_entry:
         if item.insulin == 0:
             DiaryEntries.objects.filter(diary_id =item.diary_id).update(insulin = insulin_calculation(item.food, item.drinks, item.blood_sugar_level))
-    return render(request,'iteration/list_view.html',context={'diary_entry':diary_entry})
+    return render(request,'iteration/history.html',context={'diary_entry':diary_entry})
 
 
 def insulin_calculation(food, drinks, blood_sugar_level):

@@ -76,9 +76,9 @@ def create_view(request):
                 return redirect('/iteration3/diary/')
         elif 'submit' in request.POST:
             pass
-        return render(request, 'iteration3/list_view.html', context={'diary_entry': diary_entry,'date':date,'time':time,'blood_sugar_level':blood_sugar_level,
+        return render(request, 'iteration3/history.html', context={'diary_entry': diary_entry,'date':date,'time':time,'blood_sugar_level':blood_sugar_level,
                                                                      'category':category,'portion':portion,'quantity':quantity})
-    return render(request, 'iteration3/list_view.html',locals())
+    return render(request, 'iteration3/history.html',locals())
 
 # def create_view(request):
 #     diary_entry = DiaryEntries.objects.all()
@@ -159,13 +159,13 @@ def create_view(request):
 #             'form': my_form
 #         }
 #
-#         return render(request, 'iteration3/list_view.html', context)
+#         return render(request, 'iteration3/history.html', context)
 #     else:
 #         my_form = DiaryForm(request.POST or None)
 #         context = {
 #             'form': my_form
 #         }
-#     return render(request, 'iteration3/list_view.html', context={'diary_entry':diary_entry})
+#     return render(request, 'iteration3/history.html', context={'diary_entry':diary_entry})
 
 def entry_view(request, diary_id):
     obj = get_object_or_404(DiaryEntries, diary_id=diary_id)
@@ -183,7 +183,7 @@ def entry_view(request, diary_id):
 
 def list_view(request):
     diary_entry = DiaryEntries.objects.all()
-    return render(request,'iteration3/list_view.html',context={'diary_entry':diary_entry})
+    return render(request,'iteration3/history.html',context={'diary_entry':diary_entry})
 
 def insulin_calculation(carbs, blood_sugar_level):
     ## Carbohydrate correction dose.
@@ -238,7 +238,7 @@ def carb_chart(request):
 
     context = {'carb_chart': carb_chart,
                'form': DateForm}
-    return render(request, 'iteration3/carb_chart.html', context)
+    return render(request, 'iteration3/metrics.html', context)
 
 
 def get_queryset():

@@ -34,8 +34,8 @@ class UserForm(forms.Form):
 
 
 class DateForm(forms.Form):
-    start = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    end = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    start = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=False)
+    end = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), required=False)
 
 
 class EmailForm(forms.Form):

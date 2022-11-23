@@ -117,8 +117,8 @@ def create_view(request):
             DiaryEntries.objects.filter(id=diaryentries_id).update(carbohydrates=carbs)
             DiaryEntries.objects.filter(id=diaryentries_id).update(insulin=insulin)
             DiaryEntries.objects.filter(id=diaryentries_id).update(comment=cart[0]['comment'])
-            return render(request, 'iteration3/list_view.html', context={'cart': cart})
-    return render(request, 'iteration3/list_view.html', context={'cart': request.GET.get('cart')})
+            return render(request, 'iteration3/history.html', context={'cart': cart})
+    return render(request, 'iteration3/history.html', context={'cart': request.GET.get('cart')})
 
 
 def entry_view(request, diary_id):
@@ -136,11 +136,11 @@ def entry_view(request, diary_id):
     return render(request, "iteration3/entry_view.html", context)
 
 @login_required
-def list_view(request):
+def history(request):
     # if request.session:
     #     try:
     user_id = request.session['_auth_user_id']
-    Entries = DiaryEntries.objects.filter(user_id=user_id).values().all().order_by('date', 'time')
+    Entries = DiaryEntries.objects.filter(user_id=user_id).values().all().order_by('-date', '-time')
     Details = Diary_Menu.objects.values().values_list()
 
     if Entries.exists():
@@ -149,9 +149,9 @@ def list_view(request):
         for item in Entries:
             id = int(item['id'])
             now = datetime.now().date()
-            temp = Diary_Menu.objects.filter(diary_id=id).values_list()
+            temp = Diary_Menu.objects.filter(diary_id=id).values_list().order_by('-date', '-time')
 
-            # For each entry in temp:
+            # For each entry in filtered Diary_Menu:
             for i in range(len(temp)):
 
                 # If the entry is less than a week old:
@@ -164,52 +164,55 @@ def list_view(request):
                     # Get the datetime.
                     LastWeek[id]['DateTime'] = datetime.combine(
                         DiaryEntries.objects.filter(id=id).values_list('date', flat=True)[0],
-                        DiaryEntries.objects.filter(id=id).values_list('time',flat=True)[0]
+                        DiaryEntries.objects.filter(id=id).values_list('time', flat=True)[0]
                     )
 
                     # Get the blood sugar level, carbs and insulin values.
-                    LastWeek[id]['BSL'] = round(DiaryEntries.objects.filter(id=id).values_list('blood_sugar_level', flat=True)[0], 1)
-                    LastWeek[id]['Carbs'] = floor(DiaryEntries.objects.filter(id=id).values_list('carbohydrates', flat=True)[0])
-                    LastWeek[id]['Insulin'] = floor(DiaryEntries.objects.filter(id=id).values_list('insulin', flat=True)[0])
+                    LastWeek[id]['BSL'] = round(
+                        DiaryEntries.objects.filter(id=id).values_list('blood_sugar_level', flat=True)[0], 1)
+                    LastWeek[id]['Carbs'] = floor(
+                        DiaryEntries.objects.filter(id=id).values_list('carbohydrates', flat=True)[0])
+                    LastWeek[id]['Insulin'] = floor(
+                        DiaryEntries.objects.filter(id=id).values_list('insulin', flat=True)[0])
 
                     # Get the comment.
                     if DiaryEntries.objects.filter(id=id).values_list('comment', flat=True)[0]:
-                        LastWeek[id]['Comment'] = DiaryEntries.objects.filter(id=id).values_list('comment', flat=True)[0]
+                        LastWeek[id]['Comment'] = DiaryEntries.objects.filter(id=id).values_list('comment', flat=True)[
+                            0]
 
                     # Append the entries.
                     for each in temp:
-                        print(each)
                         LastWeek[id]['rows'].append([' x' + str(each[8]), each[5], each[6], str(each[7]),
                                                      str(each[9]) + ' carbohydrates'])
-
                 # If the entry is more than a week old:
                 else:
                     LastMonth[id] = {'rows': []}
                     LastMonth[id]['Day'] = calendar.day_name[temp[i][3].weekday()]
                     LastMonth[id]['rows'].append(['x' + str(temp[i][8]), temp[i][5], temp[i][6], str(temp[i][7]),
-                                                     str(temp[i][9]) + ' carbohydrates'])
+                                                  str(temp[i][9]) + ' carbohydrates'])
                     LastMonth[id]['DateTime'] = datetime.combine(
                         DiaryEntries.objects.filter(id=id).values_list('date', flat=True)[0],
-                        DiaryEntries.objects.filter(id=id).values_list('time',flat=True)[0])
-                    LastMonth[id]['Carbs'] = floor(DiaryEntries.objects.filter(id=id).values_list('carbohydrates', flat=True)[0])
-                    LastMonth[id]['Insulin'] = floor(DiaryEntries.objects.filter(id=id).values_list('insulin', flat=True)[0])
-                    LastMonth[id]['BSL'] = round(DiaryEntries.objects.filter(id=id).values_list('blood_sugar_level', flat=True)[0], 1)
+                        DiaryEntries.objects.filter(id=id).values_list('time', flat=True)[0])
+                    LastMonth[id]['Carbs'] = floor(
+                        DiaryEntries.objects.filter(id=id).values_list('carbohydrates', flat=True)[0])
+                    LastMonth[id]['Insulin'] = floor(
+                        DiaryEntries.objects.filter(id=id).values_list('insulin', flat=True)[0])
+                    LastMonth[id]['BSL'] = round(
+                        DiaryEntries.objects.filter(id=id).values_list('blood_sugar_level', flat=True)[0], 1)
                     if DiaryEntries.objects.filter(id=id).values_list('comment', flat=True)[0]:
                         LastMonth[id]['Comment'] = DiaryEntries.objects.filter(id=id).values_list('comment', flat=True)[0]
-
         context = {
             'LastWeek': LastWeek,
             'LastMonth': LastMonth,
             'details': Details,
         }
-        return render(request, 'iteration3/list_view.html', context)
+        return render(request, 'iteration3/history.html', context)
     else:
-        return render(request, 'iteration3/list_view.html')
+        return render(request, 'iteration3/history.html')
         # except:
         #     return render(request, 'iteration3/please_login.html')
 
 def insulin_calculation(carbs, blood_sugar_level):
-    ## Carbohydrate correction dose.
     # Initialising values.
     carbs = Decimal(carbs)
     target = Decimal(5.0)
@@ -218,7 +221,6 @@ def insulin_calculation(carbs, blood_sugar_level):
     CHO = carbs/10
 
     # High Blood Sugar Correction Dose
-    ## Initialising the target blood sugar.
     difference = Decimal.from_float(blood_sugar_level) - target
     HBSCD = difference/50
 
@@ -227,8 +229,71 @@ def insulin_calculation(carbs, blood_sugar_level):
     return insulin_req
 
 
+def visualisation(entries=True):
+    # Dataframe generation.
+    date = [datetime.combine(c.date, c.time) for c in entries]
+    bsl = [c.blood_sugar_level for c in entries]
+    carbs = [c.carbohydrates for c in entries]
+    isl = [c.insulin for c in entries]
+    df = pd.DataFrame({'Date': date, 'Blood Sugar (mmol/L)': bsl, 'Insulin (units)': isl, 'Carbs (g)': carbs})
+
+    # Melting for faceting purposes.
+    df_melt = df.melt(id_vars='Date', value_vars=['Blood Sugar (mmol/L)', 'Insulin (units)', 'Carbs (g)'])
+    df_melt = df_melt.rename(columns={'variable': 'Legend'})
+
+    # Figure plotting.
+    fig4 = px.line(
+        df_melt,
+        x='Date',
+        y='value',
+        facet_col='Legend',
+        facet_col_wrap=3,
+        color='Legend',
+        title='Metrics Chart',
+        labels={'x': 'Date', 'y': 'Blood Sugar (mmol/L)'}
+    )
+
+    bsl_list = df['Blood Sugar (mmol/L)'].min(), df['Blood Sugar (mmol/L)'].max(), df['Blood Sugar (mmol/L)'].mean()
+    bsl_list = [round(v, 1) for v in bsl_list]
+    carbs_list = df['Carbs (g)'].min(), df['Carbs (g)'].max(), df['Carbs (g)'].mean()
+    carbs_list = [round(v, 2) for v in carbs_list]
+    isl_list = df['Insulin (units)'].min(), df['Insulin (units)'].max(), df['Insulin (units)'].mean()
+    isl_list = [round(v) for v in isl_list]
+
+    # Figure plotting.
+    fig1 = px.line(
+        df,
+        x='Date',
+        y='Blood Sugar (mmol/L)',
+        title='Blood Sugar Levels',
+        labels={'x': 'Date', 'y': 'Blood Sugar (mmol/L)'}
+    )
+    # Figure plotting.
+    fig2 = px.line(
+        df,
+        x='Date',
+        y='Carbs (g)',
+        title='Carbohydrates',
+        labels={'x': 'Date', 'y': 'Carbs (g)'}
+    )
+    # Figure plotting.
+    fig3 = px.line(
+        df,
+        x='Date',
+        y='Insulin (units)',
+        title='Insulin',
+        labels={'x': 'Date', 'y': 'Insulin (units)'}
+    )
+
+    # Show axes for all figures.
+    fig1.update_yaxes(showticklabels=True, matches=None)
+    fig2.update_yaxes(showticklabels=True, matches=None)
+    fig3.update_yaxes(showticklabels=True, matches=None)
+    return fig1, fig2, fig3, bsl_list, carbs_list, isl_list, fig4
+
+
 @login_required
-def carb_chart(request):
+def metrics(request):
     if request.session:
         entries = DiaryEntries.objects.filter(user_id=request.session['_auth_user_id']).all().order_by('date', 'time')
 
@@ -238,122 +303,97 @@ def carb_chart(request):
             end = request.GET.get('end')
 
             # If start and end date are provided, filter the entries.
-            if start and end:
+            if start:
                 entries = entries.filter(date__gte=start)
+            if end:
                 entries = entries.filter(date__lte=end)
 
+            if entries.exists():
                 # If there are entries at that point, create the graph.
-                if entries:
-                    # Dataframe generation.
-                    x = [datetime.combine(c.date, c.time) for c in entries]
-                    bsl = [c.blood_sugar_level for c in entries]
-                    carbs = [c.carbohydrates for c in entries]
-                    isl = [c.insulin for c in entries]
-                    df = pd.DataFrame({'x': x, 'Blood Sugar (mmol/L)': bsl, 'Insulin (units)': isl, 'Carbs (g)': carbs})
+                fig1, fig2, fig3, bsl_list, carbs_list, isl_list, fig4 = visualisation(entries)
 
-                    # Melting for faceting purposes.
-                    df_melt = df.melt(id_vars='x', value_vars=['Blood Sugar (mmol/L)', 'Insulin (units)', 'Carbs (g)'])
-                    df_melt = df_melt.rename(columns={'variable': 'Legend'})
-
-                    # Figure plotting.
-                    fig1 = px.line(
-                        df_melt,
-                        x='x',
-                        y='value',
-                        facet_col='Legend',
-                        facet_col_wrap=3,
-                        color='Legend',
-                        title='Metrics Chart',
-                        labels={'x': 'Date', 'y': 'Blood Sugar (mmol/L)'}
-                    )
-                # If no entries, return 0.
-                else:
-                    fig1 = px.line(
-                        x=[0],
-                        y=[0],
-                        title='Blood Sugar Chart',
-                        labels={'x': 'Date', 'y': 'Blood Sugar (mmol/L)'}
-                    )
-
-            # If no dates are provided, return all entries.
+            # If no entries, return 0.
             else:
-                # Dataframe generation.
-                x = [datetime.combine(c.date, c.time) for c in entries]
-                bsl = [c.blood_sugar_level for c in entries]
-                carbs = [c.carbohydrates for c in entries]
-                isl = [c.insulin for c in entries]
-                df = pd.DataFrame({'x': x, 'Blood Sugar (mmol/L)': bsl, 'Insulin (units)': isl, 'Carbs (g)': carbs})
-
-                # Melting for faceting purposes.
-                df_melt = df.melt(id_vars='x', value_vars=['Blood Sugar (mmol/L)', 'Insulin (units)', 'Carbs (g)'])
-                df_melt = df_melt.rename(columns={'variable': 'Legend'})
-
-                # Figure plotting.
+                x, y = [0], [0]
                 fig1 = px.line(
-                    df_melt,
-                    x='x',
-                    y='value',
-                    facet_col='Legend',
-                    facet_col_wrap=3,
-                    color='Legend',
-                    title='Metrics Chart',
+                    x=x,
+                    y=y,
+                    title='Blood Sugar Chart',
                     labels={'x': 'Date', 'y': 'Blood Sugar (mmol/L)'}
                 )
 
-        # If no entries, return 0.
-        else:
+                fig2 = px.line(
+                    x=x,
+                    y=y,
+                    title='Blood Sugar Chart',
+                    labels={'x': 'Date', 'y': 'Carbs (g)'}
+                )
 
-            # Dataframe generation.
-            x = [0]
-            bsl = [0]
-            carbs = [0]
-            isl = [0]
-            df = pd.DataFrame({'x': x, 'Blood Sugar (mmol/L)': bsl, 'Insulin (units)': isl, 'Carbs (g)': carbs})
-
-            # Melting for faceting purposes.
-            df_melt = df.melt(id_vars='x', value_vars=['Blood Sugar (mmol/L)', 'Insulin (units)', 'Carbs (g)'])
-            df_melt = df_melt.rename(columns={'variable': 'Legend'})
-
-            # Figure plotting.
-            fig1 = px.line(
-                df_melt,
-                x='x',
-                y='value',
-                facet_col='Legend',
-                facet_col_wrap=3,
-                color='Legend',
-                title='Metrics Chart',
-                labels={'x': 'Date', 'y': 'Blood Sugar (mmol/L)'}
-            )
+                fig3 = px.line(
+                    x=x,
+                    y=y,
+                    title='Blood Sugar Chart',
+                    labels={'x': 'Date', 'y': 'Insulin (units)'}
+                )
+                bsl_list = 0, 0, 0
+                carbs_list = 0, 0, 0
+                isl_list = 0, 0, 0
 
         # Updating the figure layout.
-        fig1.update_layout(title={
-            'font_size': 22,
-            'xanchor': 'center',
-            'x': 0.5},
-            paper_bgcolor="rgba(0,0,0,0)",
-            )
+        fig1.update_layout(title={'xanchor': 'center', 'x': 0.5, 'y': 0.85, 'font_size': 16},
+                           paper_bgcolor="rgba(0,0,0,0)"
+                           )
+
+        fig2.update_layout(title={'xanchor': 'center', 'x': 0.5, 'y': 0.85, 'font_size': 16},
+                           paper_bgcolor="rgba(0,0,0,0)"
+                           )
+
+        fig3.update_layout(title={'xanchor': 'center', 'x': 0.5, 'y': 0.85, 'font_size': 16},
+                           paper_bgcolor="rgba(0,0,0,0)"
+                           )
+
+        fig4.update_layout(title={'xanchor': 'center', 'x': 0.5, 'y': 0.85, 'font_size': 16},
+                           paper_bgcolor="rgba(0,0,0,0)"
+                           )
 
         # Show axes for all figures.
         fig1.update_yaxes(showticklabels=True, matches=None)
+        fig2.update_yaxes(showticklabels=True, matches=None)
+        fig3.update_yaxes(showticklabels=True, matches=None)
+        fig4.update_yaxes(showticklabels=True, matches=None)
+
         # Rendering to html.
         bsl_chart = fig1.to_html()
+        carbs_chart = fig2.to_html()
+        isl_chart = fig3.to_html()
 
         # Try to create the directory.
         try:
             os.makedirs('../tp08_website/attachments/{}'.format(request.session['_auth_user_id']))
             # Save the figure as a html file.
-            fig1.write_html("../tp08_website/attachments/{}/fig_metrics.html".format(request.session['_auth_user_id']))
+            fig4.write_html("../tp08_website/attachments/{}/fig_metrics.html".format(request.session['_auth_user_id']))
 
         # If the directory exists, it'll receive an error. Then, it will just save the figure as a html file.
         except:
             # Save the figure as a html file.
-            fig1.write_html("../tp08_website/attachments/{}/fig_metrics.html".format(request.session['_auth_user_id']))
+            fig4.write_html("../tp08_website/attachments/{}/fig_metrics.html".format(request.session['_auth_user_id']))
 
         # Sending the figures to the html template.
         context = {'bsl_chart': bsl_chart,
+                   'carbs_chart': carbs_chart,
+                   'isl_chart': isl_chart,
+
+                   'bsl_min': bsl_list[0],
+                   'bsl_max': bsl_list[1],
+                   'bsl_avg': bsl_list[2],
+                   'carbs_min': carbs_list[0],
+                   'carbs_max': carbs_list[1],
+                   'carbs_avg': carbs_list[2],
+                   'isl_min': isl_list[0],
+                   'isl_max': isl_list[1],
+                   'isl_avg': isl_list[2],
                    'form': DateForm}
-        return render(request, 'iteration3/carb_chart.html', context)
+        return render(request, 'iteration3/metrics.html', context)
 
 
 def email_form(request):
@@ -382,7 +422,6 @@ def success(request):
         else:
             message = 'Could not connect to the mail server. Please try again later.'
             return render(request, 'iteration3/mail.html',{'message':message})
-
 
 def load_cart(request):
     cart = request.POST.get('cart_items')
