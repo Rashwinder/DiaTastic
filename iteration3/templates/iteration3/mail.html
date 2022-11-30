@@ -1,107 +1,8 @@
-﻿﻿{% load static %}
-{% if request.session.is_login %}
-    <head>
-      <!-- BEGIN: Title -->
-      <title>Diatastic &mdash; Easily Manage Blood Sugar</title>
-      <!-- END: Title -->
-
-      <!-- BEGIN: Meta -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- END: Meta -->
-
-      <!-- BEGIN: Favicon -->
-      <link rel="shortcut icon" href="/static/images/icons8-rh-plus-gradient-16.png">
-      <!-- END: Favicon -->
-
-      <!-- BEGIN: Stylesheets -->
-        <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.css">
-      <link rel="stylesheet" href="/static/css/tiny-slider.css">
-      <link rel="stylesheet" href="/static/fonts/lineicons/LineIcons.min.css">
-      <link rel="stylesheet" href="/static/fonts/icomoon/style.css">
-      <link rel="stylesheet" href="/static/css/animate.min.css">
-      <link rel="stylesheet" href="/static/css/jquery.lavalamp.css">
-      <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css">
-      <link rel="stylesheet" href="/static/css/style.css">
-      <link rel="stylesheet" href="/static/css/select.css">
-      <!-- END: Stylesheets -->
-
-
-      <!-- BEGIN: .site-wrap -->
-      <div class="site-wrap">
-
-        <!-- BEGIN: #site-header -->
-        <!--
-          Add class '.position-relative' to display it as stack.
-          Add '.navbar-light' to make the text dark or black.
-        -->
-        <header id="site-header" class="position-relative">
-
-          <!-- Add '.navbar_dark' class if you want the color of the text to -->
-          <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-
-              <!-- BEGIN: .navbar-brand -->
-              <a class="navbar-brand" href="/iteration2/index/">
-              <img src="/static/images/icons8-rh-plus-gradient-32.png" >Diatastic
-              </a>
-              <!-- END: .navbar-brand -->
-
-              <!-- BEGIN: .navbar-toggler -->
-              <a href="#" class="burger-toggle-menu js-burger-toggle-menu ml-auto py-4" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-              </a>
-              <!-- END: .navbar-toggler -->
-
-              <!-- BEGIN: #main-nav -->
-              <div class="collapse navbar-collapse" id="main-nav">
-
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/index/">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/diary/">Diary</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/list_view/">History</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/carb_chart/">Metrics</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/guide/">Beginner's Guide</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/tips/">Tips and Tricks</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/faq/">FAQ</a>
-                  </li>
-                </ul>
-
-              </div>
-              <!-- END: #main-nav -->
-
-            </div>
-                        <ul style="margin-right:1%;margin-top:1%;">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><font color="blue">Hello, {{ request.session.user_name }}!</font></a>
-                  </li>
-                </ul>
-                <ul style="margin-right:1%;margin-top:1%;">
-                  <li class="nav-item">
-                      <a class="nav-link" href="/logout/"><font color="red">Log out</font></a>
-                  </li>
-                </ul>
-          </nav>
-        </header>
-        <!-- END: #site-header -->
-
-        <!-- BEGIN: .cover -->
+﻿{% extends 'iteration3/diary1.html' %}
+{% if request.user.is_authenticated %}
+{% block content %}
+{% load static %}
+<br><br><br><br><br>
         <div class="page-heading-85912" style="background-image: url('images/hero_bg_3.jpg')">
           <div class="container">
             <div class="row align-items-end">
@@ -249,6 +150,7 @@
       alert('{{ message }}');
 {% endif %}
 </script>
+{% endblock %}
 {% else %}
 <script type="text/javascript">
     window.location.href = "/please_login/";

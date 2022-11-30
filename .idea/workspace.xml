@@ -2,20 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8036c0-18e1-40bd-b3fa-823c02daac1d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/DiaTastic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DiaTastic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration2/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration2/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/1/fig_bsl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/1/fig_carb.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/1/fig_isl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/13/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/14/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/15/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/17/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/4/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/6/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/8/fig_bsl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/8/fig_carb.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/8/fig_isl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachments/8/fig_metrics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/Beginners Guide.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/Beginners Guide.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/carb_chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/metrics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/diary.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/diary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/diary.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/diary1.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/diary1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/entry_view.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/list_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/tips.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/tips.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/mail.html" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/templates/iteration3/mail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/prevention.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/symptoms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iteration3/templates/iteration3/test1.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/iteration3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/iteration3/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/add_to_cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/add_to_cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/send_cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/send_cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tp08_website/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/tp08_website/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +69,37 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../venv" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP-user\OneDrive\Desktop\DiaTastic\iteration3\utility" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.manage">
+    <configuration name="Calendar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DiaTastic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\HP-user\OneDrive\Desktop\venv - Copy\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\HP-user\OneDrive\Desktop\DiaTastic\iteration3\Calendar.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="DiaTastic" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -68,6 +113,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="create_event" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DiaTastic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\HP-user\OneDrive\Desktop\DiaTastic\iteration3\create_event.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="delete_event" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DiaTastic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="E:\anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iteration3/delete_event.py" />
       <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,6 +197,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Calendar" />
+      <item itemvalue="Python.create_event" />
+      <item itemvalue="Python.delete_event" />
+      <item itemvalue="Python.manage" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.delete_event" />
+        <item itemvalue="Python.create_event" />
+        <item itemvalue="Python.Calendar" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

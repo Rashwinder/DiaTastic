@@ -1,5 +1,5 @@
 ﻿﻿{% load static %}
-{% if request.session.is_login %}
+{% if request.user.is_authenticated %}
     <head>
       <link rel="shortcut icon" href="../static/images/icons8-rh-plus-gradient-16.png">
       <!-- BEGIN: Title -->
@@ -92,7 +92,7 @@
 
             </div>
                 <ul style="margin-right:1%;margin-top:1%;">
-                {% if request.session.is_login %}
+                {% if request.user.is_authenticated %}
                   <li class="nav-item">
                     <a class="nav-link" href="#"><font color="blue">Hello, {{ request.session.user_name }}!</font></a>
                   </li>
@@ -102,19 +102,9 @@
                       <a class="nav-link" href="/logout/"><font color="red">Log out</font></a>
                   </li>
                 </ul>
-                  <ul>
-                {% elif request.session.signup %}
-                <ul style="margin-right:1%;margin-top:1%;">
-                  <li class="nav-item">
-                      <a class="nav-link" href="/login/"><font color="black">Login</font>></a>
-                  </li>
-                {% else %}
-                    <li class="nav-item">
-                      <a class="nav-link" href="/login/"><font color="black">Sign Up</font></a>
-                    </li>
-                {% endif %}
                  </ul>
                 </ul>
+                {% endif %}
           </nav>
         </header>
 
@@ -136,10 +126,9 @@
 
 <form method="post"
       id = "DiaryForm"
-      action = "/diary/"
       data-description-url="{% url 'ajax_load_description' %}"
-      data-portion-url="{% url 'ajax_load_portion' %}"
-      create_view="{% url 'create_view' %}">
+      data-portion-url="{% url 'ajax_load_portion' %}">
+<!--      create_view="{% url 'create_view' %}">-->
     {% csrf_token %}
     <div class="container">
         <br><br><br><br>
@@ -238,7 +227,7 @@
                                 <input type="number"  id='quantity' min='1' onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
                             </td>
                             <td>
-                                <a href="javascript:;" class="AddTr"><button type="button" class="btn btn-primary">Add</button></a>
+                                <a href="javascript:;" id="add" class="AddTr"><button type="button" class="btn btn-primary">Add</button></a>
                             </td>
                         </tr>
                     </tbody>

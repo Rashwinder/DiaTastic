@@ -12,17 +12,6 @@
             <div class="sign-up-container">
                 <form>
                     <h1>register</h1>
-                    <div class="social-links">
-                        <div>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </div>
-                        <div>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </div>
-                        <div>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
                     <span>use email</span>
                     <input type="text" placeholder="email">
                     <input type="email" placeholder="user">
@@ -31,19 +20,13 @@
                 </form>
             </div>
             <div class="sign-in-container">
-                <form action="/login/" method="post">
+                <form method="post">
                     {% csrf_token %}
                     <h1>login</h1>
                     <div class="social-links">
-<!--                        <div>-->
-<!--                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>-->
-<!--                        </div>-->
                         <div>
                             <a href="{% url 'social:begin' 'google-oauth2' %}"><i class="fa fa-google" aria-hidden="true"></i></a>
                         </div>
-<!--                        <div>-->
-<!--                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>-->
-<!--                        </div>-->
                     </div>
                     <span>use account</span>
                     <input name='user' type="user" placeholder="User">

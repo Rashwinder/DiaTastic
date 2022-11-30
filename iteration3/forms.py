@@ -1,7 +1,7 @@
 from django import forms
 
 from django import forms
-from .models import Diary_Menu, Category, Portion, Description
+from .models import Diary_Menu
 import datetime as dt
 
 class DiaryForm(forms.ModelForm):
@@ -10,14 +10,8 @@ class DiaryForm(forms.ModelForm):
                                                            'max': dt.datetime.today().date()}))
     time = forms.TimeField(widget=forms.NumberInput(attrs={'type': 'time'}))
 
-    blood_sugar_level = forms.DecimalField(max_digits=3,
-                                           decimal_places=10)
+    blood_sugar_level = forms.DecimalField()
     comment = forms.CharField(max_length=1280, widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
-
-    # Menu-related fields.
-    # category = forms.ChoiceField(choices=[(cat.id, cat.name) for cat in Category.objects.all()])
-    # description = forms.ChoiceField(choices=[(desc.id, desc.name) for desc in Description.objects.all()])
-    # portion = forms.ChoiceField(choices=[(port.id, port.name) for port in Portion.objects.all()])
 
     class Meta:
         model = Diary_Menu
