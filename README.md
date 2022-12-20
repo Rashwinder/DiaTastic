@@ -1,5 +1,11 @@
 # Diatastic
 Master Data Science Capstone Unit
+Contributors:
+
+* [@caobaichuan1122](https://github.com/caobaichuan1122)
+* [@luckwei](https://github.com/luckwei)
+* Arun Khurana
+* Shiwei Xu
 
 <h2>
 Purpose
